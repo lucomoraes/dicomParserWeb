@@ -61,7 +61,7 @@ function DisplayData(props) {
             <p>Image Type <span style={tagStyle}>(0008,0008)</span>: <span style={resultStyle}>{props.image.imageType}</span></p>
             <p>Transfer Syntax UID <span style={tagStyle}>(0002,0010)</span>: <span style={resultStyle}>{props.image.transferSyntax}</span></p>
             <p>Instance Number <span style={tagStyle}>(0020,0013)</span>: <span style={resultStyle}>{props.image.instanceNumber}</span></p>
-            <p>Photometric Interpretation <span>(0028,0004)</span>: <span style={resultStyle}>{props.image.photometricInterpretation}</span></p>
+            <p>Photometric Interpretation <span style={tagStyle}>(0028,0004)</span>: <span style={resultStyle}>{props.image.photometricInterpretation}</span></p>
             <br></br>
             <p>Plano de imagem:</p>
             <p>Pixel Spacing <span style={tagStyle}>(0028,0030)</span>: <span style={resultStyle}>{props.image.pixelSpacing}</span></p>
