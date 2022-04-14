@@ -30,7 +30,7 @@ function DisplayData(props) {
             <p>Patient's Birth Date <span style={tagStyle}>(0010,0030)</span>: <span style={resultStyle}>{props.image.patientBirthDate}</span></p>
             <br></br>
             
-            <p>Estação:</p>
+            <p>Equipamento:</p>
             <p>Manufacturer <span style={tagStyle}>(0008,1090)</span>: <span style={resultStyle}>{props.image.manufacturer}</span></p>
             <p>Manufacturer's Model Name <span style={tagStyle}>(0008,1090)</span>: <span style={resultStyle}>{props.image.manufacturerModelName}</span></p>
             <p>Station Name <span style={tagStyle}>(0008,1010)</span>: <span style={resultStyle}>{props.image.stationName}</span></p>
