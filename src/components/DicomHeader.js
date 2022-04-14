@@ -48,6 +48,7 @@ function DicomHeader() {
     const [presentationLUTShape, setPresentationLUTShape] = useState("");
 
     const [sopInstanceUID, setSopInstanceUID] = useState("");
+    const [sopClassUID, setSopClassUID] = useState("");
     const [imageType, setImageType] = useState("");
     const [transferSyntax, setTransferSyntax] = useState("");
     const [instanceNumber, setInstanceNumber] = useState("");
@@ -102,6 +103,7 @@ function DicomHeader() {
         setPresentationLUTShape('');
 
         setSopInstanceUID('');
+        setSopClassUID('');
         setImageType('');
         setTransferSyntax('');
         setInstanceNumber('');
@@ -226,6 +228,9 @@ function DicomHeader() {
             var sopInstanceUID = dataSet.string('x00080018');            
             setSopInstanceUID(sopInstanceUID);
 
+            var sopClassUID = dataSet.string('x00080016');
+            setSopClassUID(sopClassUID);
+
             var imageType = dataSet.string('x00080008');        
             setImageType(imageType);
 
@@ -286,7 +291,7 @@ function DicomHeader() {
                             }
                         </div>
                     </div>
-                    <DisplayData image={{patientName,patientId,patientSex,patientBirthDate,manufacturer,manufacturerModelName,stationName,studyInstanceUID,studyDate,studyTime,accessionNumber,studyID,studyDescription,seriesInstanceUID,seriesDate,seriesTime,seriesNumber,modality,institutionName,seriesDescription,bodyPartExamined,pixelSpacing,sliceLocation,sliceThickness,imagePosition,imageOrientation,VOILUTFunction,presentationLUTShape,sopInstanceUID,imageType,transferSyntax,instanceNumber,photometricInterpretation,kvp}}/>                    
+                    <DisplayData image={{patientName,patientId,patientSex,patientBirthDate,manufacturer,manufacturerModelName,stationName,studyInstanceUID,studyDate,studyTime,accessionNumber,studyID,studyDescription,seriesInstanceUID,seriesDate,seriesTime,seriesNumber,modality,institutionName,seriesDescription,bodyPartExamined,pixelSpacing,sliceLocation,sliceThickness,imagePosition,imageOrientation,VOILUTFunction,presentationLUTShape,sopInstanceUID,sopClassUID,imageType,transferSyntax,instanceNumber,photometricInterpretation,kvp}}/>                    
                 </div>
             </div>
         </div>

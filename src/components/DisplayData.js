@@ -58,6 +58,7 @@ function DisplayData(props) {
 
             <p>Objetos Dicom:</p> 
             <p>SOP Instance UID <span style={tagStyle}>(0002,0003)</span>: <span style={resultStyle}>{props.image.sopInstanceUID}</span></p>
+            <p>SOP CLASS UID <span style={tagStyle}>(0008,0016)</span>: <span style={resultStyle}>{props.image.sopClassUID}</span></p>
             <p>Image Type <span style={tagStyle}>(0008,0008)</span>: <span style={resultStyle}>{props.image.imageType}</span></p>
             <p>Transfer Syntax UID <span style={tagStyle}>(0002,0010)</span>: <span style={resultStyle}>{props.image.transferSyntax}</span></p>
             <p>Instance Number <span style={tagStyle}>(0020,0013)</span>: <span style={resultStyle}>{props.image.instanceNumber}</span></p>
