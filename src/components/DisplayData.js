@@ -29,12 +29,6 @@ function DisplayData(props) {
             <p>Patient's Sex <span style={tagStyle}>(0010,0040)</span>: <span style={resultStyle}>{props.image.patientSex}</span></p>
             <p>Patient's Birth Date <span style={tagStyle}>(0010,0030)</span>: <span style={resultStyle}>{props.image.patientBirthDate}</span></p>
             <br></br>
-            
-            <p>Equipamento:</p>
-            <p>Manufacturer <span style={tagStyle}>(0008,1090)</span>: <span style={resultStyle}>{props.image.manufacturer}</span></p>
-            <p>Manufacturer's Model Name <span style={tagStyle}>(0008,1090)</span>: <span style={resultStyle}>{props.image.manufacturerModelName}</span></p>
-            <p>Station Name <span style={tagStyle}>(0008,1010)</span>: <span style={resultStyle}>{props.image.stationName}</span></p>
-            <br></br>
 
             <p>Exame:</p>
             <p>Study Instance UID <span style={tagStyle}>(0020,000D)</span>: <span style={resultStyle}>{props.image.studyInstanceUID}</span></p> 
@@ -43,7 +37,13 @@ function DisplayData(props) {
             <p>Study ID <span style={tagStyle}>(0020,0010)</span>: <span style={resultStyle}>{props.image.studyID}</span></p>
             <p>Accession Number <span style={tagStyle}>(0008,0050)</span>: <span style={resultStyle}>{props.image.accessionNumber}</span></p> 
             <p>Study description <span style={tagStyle}>(0008,1030)</span>: <span style={resultStyle}>{props.image.studyDescription}</span></p> 
-            <br></br>   
+            <br></br>  
+            
+            <p>Equipamento:</p>
+            <p>Manufacturer <span style={tagStyle}>(0008,1090)</span>: <span style={resultStyle}>{props.image.manufacturer}</span></p>
+            <p>Manufacturer's Model Name <span style={tagStyle}>(0008,1090)</span>: <span style={resultStyle}>{props.image.manufacturerModelName}</span></p>
+            <p>Station Name <span style={tagStyle}>(0008,1010)</span>: <span style={resultStyle}>{props.image.stationName}</span></p>
+            <br></br>
 
             <p>Séries:</p>
             <p>Series Instance UID <span style={tagStyle}>(0020,000E)</span>: <span style={resultStyle}>{props.image.seriesInstanceUID}</span></p>
@@ -56,7 +56,7 @@ function DisplayData(props) {
             <p>Body Part Examined <span style={tagStyle}>(0018,0015)</span>: <span style={resultStyle}>{props.image.bodyPartExamined}</span></p>           
             <br></br>
 
-            <p>Objetos Dicom:</p>
+            <p>Objetos Dicom:</p> 
             <p>SOP Instance UID <span style={tagStyle}>(0002,0003)</span>: <span style={resultStyle}>{props.image.sopInstanceUID}</span></p>
             <p>Image Type <span style={tagStyle}>(0008,0008)</span>: <span style={resultStyle}>{props.image.imageType}</span></p>
             <p>Transfer Syntax UID <span style={tagStyle}>(0002,0010)</span>: <span style={resultStyle}>{props.image.transferSyntax}</span></p>
@@ -69,6 +69,8 @@ function DisplayData(props) {
             <p>Slice Thickness <span style={tagStyle}>(0018,0050)</span>: <span style={resultStyle}>{props.image.sliceThickness}</span></p>
             <p>Image Position <span style={tagStyle}>(0020,0032)</span>: <span style={resultStyle}>{props.image.imagePosition}</span></p>
             <p>Image Orientation <span style={tagStyle}>(0020,0037)</span>: <span style={resultStyle}>{props.image.imageOrientation}</span></p>
+            <p>VOI LUT Function <span style={tagStyle}>(0028,1056)</span>: <span style={resultStyle}>{props.image.VOILUTFunction}</span></p>            
+            <p>Presentation LUT Shape <span style={tagStyle}>(2050,0020)</span>: <span style={resultStyle}>{props.image.presentationLUTShape}</span></p>
             <br></br>
 
             <p>Aquisição de imagem:</p>

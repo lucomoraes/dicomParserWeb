@@ -8,6 +8,8 @@ import dicomParser from 'dicom-parser';
 import {useDropzone} from 'react-dropzone';
 import DisplayData from './DisplayData';
 
+import moment from 'moment';
+
 function DicomHeader() {
 
     // State varaibles that will be used to set and store the data
@@ -42,6 +44,8 @@ function DicomHeader() {
     const [sliceThickness, setSliceThickness] = useState("");
     const [imagePosition, setImagePosition] = useState("");
     const [imageOrientation, setImageOrientation] = useState("");
+    const [VOILUTFunction, setVOILUTFunction] = useState("");    
+    const [presentationLUTShape, setPresentationLUTShape] = useState("");
 
     const [sopInstanceUID, setSopInstanceUID] = useState("");
     const [imageType, setImageType] = useState("");
@@ -94,6 +98,8 @@ function DicomHeader() {
         setSliceThickness('');
         setImagePosition('');
         setImageOrientation('');
+        setVOILUTFunction('');        
+        setPresentationLUTShape('');
 
         setSopInstanceUID('');
         setImageType('');
@@ -124,7 +130,7 @@ function DicomHeader() {
             setPatientSex(patientSex);
 
             var patientBirthDate = dataSet.string('x00100030');
-            setPatientBirthDate(patientBirthDate);
+            setPatientBirthDate(moment(patientBirthDate).format('DD/MM/YYYY'));
             //Dados paciente:                             
 
             //Estação
@@ -144,10 +150,14 @@ function DicomHeader() {
             setStudyInstaceUID(studyInstanceUID);
             
             var studyDate = dataSet.string('x00080020');
-            setStudyDate(studyDate);
+            setStudyDate(moment(studyDate).format('DD/MM/YYYY'));
 
             var studyTime = dataSet.string('x00080030');
-            setStudyTime(studyTime);
+            var hour = studyTime.slice(0, 2); 
+            var minute = studyTime.slice(2, 4);
+            var second = studyTime.slice(4, 6);
+            var shortTime = `${hour}:${minute}:${second}`
+            setStudyTime(shortTime);
 
             var studyID = dataSet.string('x00200010');
             setStudyID(studyID);
@@ -164,10 +174,14 @@ function DicomHeader() {
             setSeriesInstanceUID(seriesInstanceUID);
 
             var seriesDate = dataSet.string('x00080021');
-            setSeriesDate(seriesDate);
+            setSeriesDate(moment(seriesDate).format('DD/MM/YYYY'));
 
             var seriesTime = dataSet.string('x00080031');
-            setSeriesTime(seriesTime);
+            hour = seriesTime.slice(0, 2); 
+            minute = seriesTime.slice(2, 4);
+            second = seriesTime.slice(4, 6);
+            shortTime = `${hour}:${minute}:${second}`
+            setSeriesTime(shortTime);
 
             var seriesNumber = dataSet.string('x00200011');
             setSeriesNumber(seriesNumber);
@@ -200,27 +214,28 @@ function DicomHeader() {
             
             var imageOrientation = dataSet.string('x00200037');
             setImageOrientation(imageOrientation);
+
+            var VOILUTFunction = dataSet.string('x00281056');
+            setVOILUTFunction(VOILUTFunction)
+
+            var presentationLUTShape = dataSet.string('x20500020');            
+            setPresentationLUTShape(presentationLUTShape)
             //Plano de Imagem
 
             //Objecto Dicom
-            var sopInstanceUID = dataSet.string('x00080018');
-            console.log(sopInstanceUID)
+            var sopInstanceUID = dataSet.string('x00080018');            
             setSopInstanceUID(sopInstanceUID);
 
-            var imageType = dataSet.string('x00080008');
-            console.log(imageType)
+            var imageType = dataSet.string('x00080008');        
             setImageType(imageType);
 
-            var transferSyntax = dataSet.string('x00020010');
-            console.log(transferSyntax)
+            var transferSyntax = dataSet.string('x00020010');            
             setTransferSyntax(transferSyntax);
 
-            var instanceNumber = dataSet.string('x00200013');
-            console.log(instanceNumber)
+            var instanceNumber = dataSet.string('x00200013');            
             setInstanceNumber(instanceNumber);
 
-            var photometricInterpretation = dataSet.string('x00280004')
-            console.log(photometricInterpretation)
+            var photometricInterpretation = dataSet.string('x00280004')            
             setPhotometricInterpretation(photometricInterpretation);
 
             //Aquisição de imagem
@@ -271,7 +286,7 @@ function DicomHeader() {
                             }
                         </div>
                     </div>
-                    <DisplayData image={{patientName,patientId,patientSex,patientBirthDate,manufacturer,manufacturerModelName,stationName,studyInstanceUID,studyDate,studyTime,accessionNumber,studyID,studyDescription,seriesInstanceUID,seriesDate,seriesTime,seriesNumber,modality,institutionName,seriesDescription,bodyPartExamined,pixelSpacing,sliceLocation,sliceThickness,imagePosition,imageOrientation,sopInstanceUID,imageType,transferSyntax,instanceNumber,photometricInterpretation,kvp}}/>                    
+                    <DisplayData image={{patientName,patientId,patientSex,patientBirthDate,manufacturer,manufacturerModelName,stationName,studyInstanceUID,studyDate,studyTime,accessionNumber,studyID,studyDescription,seriesInstanceUID,seriesDate,seriesTime,seriesNumber,modality,institutionName,seriesDescription,bodyPartExamined,pixelSpacing,sliceLocation,sliceThickness,imagePosition,imageOrientation,VOILUTFunction,presentationLUTShape,sopInstanceUID,imageType,transferSyntax,instanceNumber,photometricInterpretation,kvp}}/>                    
                 </div>
             </div>
         </div>
