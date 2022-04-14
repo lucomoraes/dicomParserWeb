@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dicomParserWeb/static/css/main.412f4dc9.css",
-    "main.js": "/dicomParserWeb/static/js/main.8445238a.js",
+    "main.js": "/dicomParserWeb/static/js/main.3c90d150.js",
     "static/js/787.2790f3bb.chunk.js": "/dicomParserWeb/static/js/787.2790f3bb.chunk.js",
     "index.html": "/dicomParserWeb/index.html",
     "main.412f4dc9.css.map": "/dicomParserWeb/static/css/main.412f4dc9.css.map",
-    "main.8445238a.js.map": "/dicomParserWeb/static/js/main.8445238a.js.map",
+    "main.3c90d150.js.map": "/dicomParserWeb/static/js/main.3c90d150.js.map",
     "787.2790f3bb.chunk.js.map": "/dicomParserWeb/static/js/787.2790f3bb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.412f4dc9.css",
-    "static/js/main.8445238a.js"
+    "static/js/main.3c90d150.js"
   ]
 }
